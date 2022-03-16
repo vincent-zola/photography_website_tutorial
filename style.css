@@ -1,0 +1,540 @@
+/* Global Style */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Ruhl";
+  src: url(./fonts/FrankRuhlLibre-Regular.ttf);
+}
+@font-face {
+  font-family: "Ruhl Medium";
+  src: url(./fonts/FrankRuhlLibre-Medium.ttf);
+}
+@font-face {
+  font-family: "Vibes";
+  src: url(./fonts/GreatVibes-Regular.ttf);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  /* 1vw each 1000 px it grows + 10 px */
+  --header1: calc(4rem + 1vw);
+  --header2: calc(3.5rem + 1vw);
+  --header3: calc(3rem + 1vw);
+  --header4: calc(2.4rem + 1vw);
+  --text: calc(1.5rem + 1vw);
+  --big: calc(6rem + 1vw);
+  --special-color: #906272;
+  --background-color: #414141;
+  --gray-text: #525252;
+}
+
+h1 {
+  font-size: var(--header1);
+}
+li,
+button,
+label,
+input,
+a,
+p {
+  font-size: var(--text);
+}
+h2 {
+  font-size: var(--header2);
+}
+h3 {
+  font-size: var(--header3);
+}
+h4,
+h5 {
+  font-size: var(--header4);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  font-family: "Ruhl", sans-serif;
+  animation: opening 1s ease-in-out;
+}
+h1 {
+  font-family: "Vibes", sans-serif;
+}
+
+/* Nav Section */
+.main-head {
+  box-shadow: 0px 10px 10px rgb(0, 0, 0, 0.1);
+  /* So that the shadow of Nav is visible */
+  z-index: 2;
+  position: relative;
+  /* Make Navbar sticky */
+  /* background: #ffffff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0; */
+}
+nav {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  min-height: 10vh;
+  padding: 2rem 0rem;
+}
+#logo {
+  flex: 1 1 20rem;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  flex: 1 1 20rem;
+}
+.hero {
+  min-height: 90vh;
+  width: 95%;
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.hero-introduction {
+  flex: 2 1 40rem;
+  text-align: center;
+}
+.hero-introduction p {
+  padding: 5rem 10rem;
+  color: var(--gray-text);
+}
+.hero-introduction h2 {
+  padding-top: 3rem;
+}
+.hero-introduction a {
+  padding: 2rem 8rem;
+  border: 3px solid black;
+  margin-bottom: 4rem;
+}
+.hero-images {
+  flex: 1 1 40rem;
+  background: linear-gradient(#dad8dd, #dad1d4);
+  position: relative;
+  z-index: 1;
+}
+.hero-elena {
+  width: 100%;
+  height: 100%;
+  /* picture will not squeeze */
+  object-fit: cover;
+}
+.plant {
+  position: absolute;
+  bottom: 0;
+  left: -20%;
+  z-index: -1;
+  max-height: 80%;
+}
+.plant1 {
+  transform: translateY(10%) translateX(10%) rotateZ(30deg) rotateX(-30deg);
+  animation: plant-entrance1 2s ease-in-out 1.5s forwards,
+    plant-shake1 2.5s infinite ease alternate-reverse 3.5s;
+  transform-origin: bottom;
+}
+.plant2 {
+  left: 50%;
+  transform: rotateZ(-30deg) rotateX(-30deg);
+  animation: plant-entrance2 1.9s ease-in-out 1.5s forwards,
+    plant-shake2 3s infinite ease alternate-reverse 3.4s;
+  transform-origin: bottom;
+}
+.plant3 {
+  transform: rotateZ(20deg) rotateX(-30deg);
+  animation: plant-entrance3 1.7s ease-in-out 1.5s forwards,
+    plant-shake3 3s infinite ease alternate-reverse 3.2s;
+  transform-origin: bottom;
+}
+
+/* ANIMATIONS */
+
+@keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes plant-entrance1 {
+  from {
+    transform: translateY(10%) translateX(10%) rotateZ(30deg) rotateX(-30deg);
+  }
+  to {
+    transform: translateY(0%) rotateZ(0deg) rotateX(0deg) rotateX(0deg);
+  }
+}
+@keyframes plant-entrance2 {
+  from {
+    transform: rotateZ(-30deg) rotateX(-30deg);
+  }
+  to {
+    transform: rotateZ(0deg) rotateX(0deg);
+  }
+}
+@keyframes plant-entrance3 {
+  from {
+    transform: rotateZ(20deg) rotateX(-30deg);
+  }
+  to {
+    transform: rotateZ(0deg) rotateX(0deg);
+  }
+}
+@keyframes plant-shake1 {
+  from {
+    transform: rotateZ(1deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+@keyframes plant-shake2 {
+  from {
+    transform: rotateZ(-2deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+@keyframes plant-shake3 {
+  from {
+    transform: rotateZ(1deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+.burger,
+.menu-check {
+  display: none;
+}
+
+/* ABOUT SECTION */
+
+#about {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.about-text {
+  background: var(--background-color);
+  color: white;
+  flex: 2 1 40rem;
+  justify-content: space-around;
+}
+.about-text div {
+  padding: 3rem 8rem;
+}
+.about-text h3 {
+  padding: 2rem 0rem;
+  font-family: "Ruhl Medium";
+}
+.about-text h2 {
+  padding: 4rem;
+  font-family: "Vibes";
+}
+.about-image {
+  flex: 1 1 40rem;
+  position: relative;
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  /* So that the img doesn't stretch */
+  object-fit: cover;
+}
+.about-image h5 {
+  /* Add text inside image */
+  position: absolute;
+  letter-spacing: 2rem;
+  top: 20%;
+  left: 50%;
+  /* Moves element by his own % */
+  transform: translate(-50%, -20%);
+}
+
+/* Gallery */
+
+.gallery {
+  display: grid;
+  min-height: 100vh;
+  /* repeat 3 elements near each other, each 1 fraction big, which is equal to each other  */
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+/* First create image wrapper div than add overvlow: hidden so that no overflow if zoom happens */
+.image-wrapper1 {
+  grid-column: 1/3;
+  overflow: hidden;
+}
+.image-wrapper2 {
+  grid-column: 3/4;
+  grid-row: 1/3;
+  overflow: hidden;
+}
+.image-wrapper3 {
+  overflow: hidden;
+}
+.image-wrapper4 {
+  overflow: hidden;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery1 {
+  /* From Dark to light effect  */
+  filter: brightness(0.5);
+  /* ease and out is just the transition method */
+  transition: filter 0.6s ease-in-out, transform 0.4s ease-in-out;
+}
+.gallery1:hover {
+  filter: brightness(1);
+  transform: scale(1.1);
+}
+
+.gallery2 {
+  filter: brightness(0.5);
+  transition: filter 0.6s ease-in-out, transform 0.4s ease-in-out;
+}
+.gallery2:hover {
+  filter: brightness(1);
+  transform: scale(1.1);
+}
+
+.gallery3 {
+  filter: brightness(0.5);
+  transition: filter 0.6s ease-in-out, transform 0.4s ease-in-out;
+}
+.gallery3:hover {
+  filter: brightness(1);
+  transform: scale(1.1);
+}
+.gallery4 {
+  filter: brightness(0.5);
+  transition: filter 0.6s ease-in-out, transform 0.4s ease-in-out;
+}
+.gallery4:hover {
+  filter: brightness(1);
+  transform: scale(1.1);
+}
+
+.gallery-head {
+  position: absolute;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  background: #414141b2;
+  padding: 5rem 10rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* CONTACT SECTION */
+
+#contact {
+  min-height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-wrapper {
+  flex: 3 1 40rem;
+}
+.form-wrapper h2{
+  margin: 5rem 0rem;
+}
+.form-wrapper span {
+  font-size: var(--big);
+  color: var(--special-color);
+}
+.form-wrapper label {
+  display: block;
+}
+.form-wrapper input{
+  display: block;
+  margin: 3rem 0rem;
+  background: var(--background-color);
+  color: white;
+  border: none;
+  padding: 1rem;
+}
+.form-wrapper button{
+  padding: 1rem 8rem;
+  background: var(--special-color);
+  color: white;
+  border: none;
+  
+}
+.contact-image{
+  flex: 1 1 40rem;
+}
+.contact-image img {
+  
+  width: 100%;
+  height: 100%;
+  /* picture will not squeeze */
+  object-fit: cover;
+}
+
+/* FOOTER SECTION */
+
+footer{
+  background: var(--background-color);
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 3rem 5%;
+  min-height: 10vh;
+  
+}
+footer h4{
+  flex: 3 1 40rem;
+  font-size: calc(1.4rem + 1vw);
+}
+
+footer ul{
+  display: flex;
+  list-style: none;
+  flex: 1 1 40rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 799px) {
+  .hero {
+    width: 100%;
+  }
+
+  .hero-introduction p {
+    padding: 5rem 3rem;
+  }
+
+  /* Burger Thing */
+
+  .burger {
+    position: relative;
+    display: block;
+    cursor: pointer;
+  }
+
+  .burger span {
+    padding: 0.2rem 2rem;
+    background: var(--gray-text);
+    margin: 0.5rem 0rem;
+    display: block;
+    /* animation of crest */
+    transition: all 0.5s ease;
+  }
+  .nav-links a {
+    color: white;
+    font-size: var(--header3);
+  }
+  .nav-links li {
+    margin: 3rem 0rem;
+  }
+  .nav-links {
+    background: #414141ef;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Animeate Menu */
+    transition: transform 0.5s ease;
+  }
+  
+  /* "+" if checked something happens to nav-links */
+  .nav-open{
+    transform: translateX(-100%);
+  }
+  /* "~" grab children in this case span is child  */
+  .toggle .line1{
+    transform: rotateZ(45deg) translateY(300%);
+    background: white;
+  }
+  .toggle .line2{
+    opacity: 0;
+  }
+  .toggle .line3{
+    transform: rotateZ(-45deg) translateY(-300%);
+    background: white;
+  }
+
+ 
+
+  /* About section */
+
+  .about-text div {
+    padding: 1rem 3rem;
+  }
+  /* Gallery */
+
+  .gallery div {
+    grid-row: auto;
+    grid-column: auto;
+  }
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  }
+  .gallery-head {
+    display: none;
+  }
+
+  /* CONTACT */
+
+  #contact img{
+    display: none;
+  }
+
+  /* FOOTER */
+  
+  footer ul{
+    /* orders elements around in this example puts element at the end */
+    order: 1;
+  }
+  footer h4{
+    text-align: center;
+    padding-bottom: 1rem;
+    order: 2;
+  }
+}
+/* Will cap the max text size */
+@media screen and (min-width: 1700px){
+  html{
+  --header1: 5rem;
+  --header2: 5rem;
+  --header3: 4rem;
+  --header4: 3rem;
+  --text: 3rem;
+  --big: 8rem;
+  }
+}
